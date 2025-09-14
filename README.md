@@ -40,6 +40,28 @@ LinkGuard is a Base MiniApp that scans pasted links for phishing and scam patter
    npm start
    ```
 
+## Farcaster Frames
+
+LinkGuard includes full Farcaster Frame support for seamless integration within the Base ecosystem:
+
+### Frame Endpoints
+- **Main Frame**: `/api/frame` - Initial frame with scan options
+- **Actions**: `/api/frame/actions` - Handle button interactions
+- **Scan**: `/api/frame/scan` - Process link scanning
+- **Report**: `/api/frame/report` - Handle scam reporting
+- **Images**: `/api/frame/image/*` - Dynamic SVG images for frames
+
+### Frame Features
+- **Interactive Scanning**: Users can scan links directly within frames
+- **Real-time Results**: Instant visual feedback with threat analysis
+- **User Limits**: Free tier (5 scans/day) with premium upgrade options
+- **Community Reporting**: Report suspicious links to improve threat intelligence
+
+### Testing Frames
+1. Visit `/frame` in your application for development testing
+2. Use Farcaster Frame validator tools to test frame functionality
+3. Deploy to production and test within Farcaster clients
+
 ## Architecture
 
 ### Core Components

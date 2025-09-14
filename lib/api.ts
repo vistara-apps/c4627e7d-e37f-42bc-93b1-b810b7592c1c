@@ -41,45 +41,31 @@ async function checkPhishingDatabase(url: string): Promise<{ isMalicious: boolea
   return { isMalicious: false };
 }
 
-// Mock AI threat detection
+// AI threat detection with OpenAI
 async function analyzeWithAI(url: string): Promise<{ threats: string[]; confidence: number; explanation: string }> {
-  // Simulate AI processing delay
-  await new Promise(resolve => setTimeout(resolve, 800));
-  
-  const domain = extractDomain(url);
-  const threats: string[] = [];
-  let confidence = 0.9;
-  let explanation = 'This link appears to be safe based on our analysis.';
-  
-  // Check for suspicious domain patterns
-  if (domain.includes('metamask') && !domain.includes('metamask.io')) {
-    threats.push('Potential MetaMask impersonation');
-    confidence = 0.8;
-    explanation = 'This domain appears to impersonate MetaMask, which is commonly used in phishing attacks.';
+  try {
+    // Try OpenAI analysis first
+    const { analyzeUrlWithAI } = await import('./openai');
+    const aiResult = await analyzeUrlWithAI(url);
+
+    return {
+      threats: aiResult.threats,
+      confidence: aiResult.confidence,
+      explanation: aiResult.explanation,
+    };
+  } catch (error) {
+    console.warn('OpenAI analysis failed, falling back to pattern matching:', error);
+
+    // Fallback to pattern-based analysis
+    const { analyzeUrlPatterns } = await import('./openai');
+    const patternResult = await analyzeUrlPatterns(url);
+
+    return {
+      threats: patternResult.threats,
+      confidence: patternResult.confidence,
+      explanation: patternResult.explanation,
+    };
   }
-  
-  if (domain.includes('coinbase') && !domain.includes('coinbase.com')) {
-    threats.push('Potential Coinbase impersonation');
-    confidence = 0.85;
-    explanation = 'This domain appears to impersonate Coinbase, which is commonly used in phishing attacks.';
-  }
-  
-  // Check for suspicious TLDs
-  const suspiciousTlds = ['.tk', '.ml', '.ga', '.cf'];
-  if (suspiciousTlds.some(tld => domain.endsWith(tld))) {
-    threats.push('Suspicious top-level domain');
-    confidence = 0.7;
-    explanation = 'This domain uses a TLD commonly associated with malicious websites.';
-  }
-  
-  // Check for URL shorteners
-  if (SUSPICIOUS_PATTERNS.some(pattern => pattern.test(url))) {
-    threats.push('URL shortener detected');
-    confidence = 0.6;
-    explanation = 'This is a shortened URL which could hide the actual destination. Exercise caution.';
-  }
-  
-  return { threats, confidence, explanation };
 }
 
 export async function scanLink(url: string): Promise<ApiResponse<ScanResult>> {
