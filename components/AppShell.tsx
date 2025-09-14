@@ -32,10 +32,10 @@ export function AppShell() {
       <div className="max-w-md mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="display text-white mb-2 text-balance">
+          <h1 className="text-2xl font-semibold text-white mb-2 text-balance">
             Scam Link Detector
           </h1>
-          <p className="caption text-white/80 text-balance">
+          <p className="text-sm font-light text-white/80 text-balance">
             Scan links for scams, instantly.
           </p>
         </div>
@@ -50,14 +50,14 @@ export function AppShell() {
           )}
 
           {isScanning && (
-            <div className="bg-surface rounded-lg p-6 shadow-card text-center">
-              <div className="animate-pulse-slow mb-4">
+            <div className="bg-surface rounded-lg p-6 shadow-lg text-center">
+              <div className="animate-pulse mb-4">
                 <div className="w-12 h-12 bg-primary/20 rounded-full mx-auto flex items-center justify-center">
                   <div className="w-6 h-6 bg-primary rounded-full animate-ping"></div>
                 </div>
               </div>
-              <h3 className="body font-semibold text-text mb-2">Scanning...</h3>
-              <p className="caption text-gray-600">
+              <h3 className="text-base font-semibold text-foreground mb-2">Scanning...</h3>
+              <p className="text-sm text-gray-600">
                 Checking link against our security database
               </p>
             </div>
@@ -74,7 +74,7 @@ export function AppShell() {
 
         {/* Footer */}
         <div className="text-center mt-8">
-          <p className="caption text-white/60">
+          <p className="text-sm font-light text-white/60">
             Powered by AI threat intelligence
           </p>
         </div>
