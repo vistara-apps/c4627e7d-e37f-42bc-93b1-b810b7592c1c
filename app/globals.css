@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: hsl(210, 20%, 95%);
+  --text: hsl(210, 20%, 10%);
+  --accent: hsl(130, 70%, 50%);
+  --danger: hsl(0, 70%, 50%);
+  --primary: hsl(210, 70%, 50%);
+  --surface: hsl(210, 20%, 100%);
+  --warning: hsl(34, 70%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-bg text-text font-normal leading-6;
+    background: linear-gradient(135deg, #87CEEB 0%, #98D8E8 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .display {
+    @apply text-2xl font-semibold;
+  }
+  
+  .body {
+    @apply text-base font-normal leading-6;
+  }
+  
+  .caption {
+    @apply text-sm font-light;
+  }
+  
+  .card-shadow {
+    box-shadow: 0 4px 12px hsla(210, 20%, 10%, 0.08);
+  }
+  
+  .transition-smooth {
+    transition: all 200ms ease-in-out;
+  }
+  
+  .transition-fast {
+    transition: all 100ms ease-in-out;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
