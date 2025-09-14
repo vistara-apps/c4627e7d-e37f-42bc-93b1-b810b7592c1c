@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "LinkGuard",
+    "subtitle": "Built with Zara",
+    "description": "LinkGuard is a Base Mini App built with Zara.",
+    "iconUrl": "https://0co.to/images/zara-2.png",
+    "homeUrl": "https://c4627e7de37f42bc93b1b810b7592c1c-0pqk.vercel.app",
+    "splashImageUrl": "https://c4627e7de37f42bc93b1b810b7592c1c-0pqk.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://c4627e7de37f42bc93b1b810b7592c1c-0pqk.vercel.app/image.png",
+    "tagline": "LinkGuard",
+    "screenshotUrls": [
+      "https://c4627e7de37f42bc93b1b810b7592c1c-0pqk.vercel.app/screenshot.png",
+      "https://c4627e7de37f42bc93b1b810b7592c1c-0pqk.vercel.app/screenshot.png"
+    ],
+    "primaryCategory": "social",
+    "tags": [
+      "base",
+      "miniapp",
+      "onchainkit"
+    ],
+    "webhookUrl": "https://c4627e7de37f42bc93b1b810b7592c1c-0pqk.vercel.app/api/webhook"
+  }
+}
