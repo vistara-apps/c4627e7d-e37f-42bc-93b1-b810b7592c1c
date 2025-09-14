@@ -70,15 +70,15 @@ export function ResultCard({ result, url, onNewScan }: ResultCardProps) {
   };
 
   return (
-    <div className={`bg-surface rounded-lg p-6 shadow-card border-2 ${config.borderColor}`}>
+    <div className={`bg-surface rounded-lg p-6 shadow-lg border-2 ${config.borderColor}`}>
       {/* Status Header */}
       <div className="flex items-center gap-3 mb-4">
         <div className={`p-2 rounded-lg ${config.bgColor}`}>
           <Icon className={`w-6 h-6 ${config.color}`} />
         </div>
         <div className="flex-1">
-          <h3 className="body font-semibold text-text">{config.title}</h3>
-          <p className="caption text-gray-600">
+          <h3 className="text-base font-semibold text-foreground">{config.title}</h3>
+          <p className="text-sm text-gray-600">
             Confidence: {Math.round(result.confidence * 100)}%
           </p>
         </div>
@@ -86,25 +86,25 @@ export function ResultCard({ result, url, onNewScan }: ResultCardProps) {
 
       {/* URL Display */}
       <div className="mb-4 p-3 bg-gray-50 rounded-lg">
-        <p className="caption text-gray-600 mb-1">Scanned URL:</p>
-        <p className="body font-mono text-sm break-all">
+        <p className="text-sm text-gray-600 mb-1">Scanned URL:</p>
+        <p className="text-base font-mono text-sm break-all">
           {truncateUrl(url, 60)}
         </p>
       </div>
 
       {/* Explanation */}
       <div className="mb-4">
-        <p className="body text-text">{result.explanation}</p>
+        <p className="text-base text-foreground">{result.explanation}</p>
       </div>
 
       {/* Threats */}
       {result.threats.length > 0 && (
         <div className="mb-4">
-          <h4 className="body font-semibold text-text mb-2">Detected Issues:</h4>
+          <h4 className="text-base font-semibold text-foreground mb-2">Detected Issues:</h4>
           <ul className="space-y-1">
             {result.threats.map((threat, index) => (
-              <li key={index} className="caption text-gray-700 flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-danger rounded-full flex-shrink-0"></div>
+              <li key={index} className="text-sm text-gray-700 flex items-center gap-2">
+                <div className="w-1.5 h-1.5 bg-destructive rounded-full flex-shrink-0"></div>
                 {threat}
               </li>
             ))}
@@ -115,10 +115,10 @@ export function ResultCard({ result, url, onNewScan }: ResultCardProps) {
       {/* Recommendations */}
       {result.recommendations && result.recommendations.length > 0 && (
         <div className="mb-6">
-          <h4 className="body font-semibold text-text mb-2">Recommendations:</h4>
+          <h4 className="text-base font-semibold text-foreground mb-2">Recommendations:</h4>
           <ul className="space-y-1">
             {result.recommendations.map((rec, index) => (
-              <li key={index} className="caption text-gray-700 flex items-center gap-2">
+              <li key={index} className="text-sm text-gray-700 flex items-center gap-2">
                 <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
                 {rec}
               </li>
@@ -165,7 +165,7 @@ export function ResultCard({ result, url, onNewScan }: ResultCardProps) {
 
         {reportSuccess && (
           <div className="text-center p-3 bg-accent/10 rounded-lg">
-            <p className="caption text-accent font-medium">
+            <p className="text-sm text-accent font-medium">
               Thank you for reporting! This helps keep everyone safe.
             </p>
           </div>

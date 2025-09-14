@@ -3,13 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --bg: hsl(210, 20%, 95%);
-  --text: hsl(210, 20%, 10%);
+  --background: hsl(210, 20%, 95%);
+  --foreground: hsl(210, 20%, 10%);
   --accent: hsl(130, 70%, 50%);
-  --danger: hsl(0, 70%, 50%);
+  --destructive: hsl(0, 70%, 50%);
   --primary: hsl(210, 70%, 50%);
   --surface: hsl(210, 20%, 100%);
   --warning: hsl(34, 70%, 50%);
+  --muted: hsl(210, 20%, 90%);
+  --muted-foreground: hsl(210, 20%, 40%);
+  --border: hsl(210, 20%, 85%);
+  --input: hsl(210, 20%, 95%);
+  --ring: hsl(210, 70%, 50%);
+  --radius: 8px;
 }
 
 @layer base {
@@ -18,7 +24,6 @@
   }
   
   body {
-    @apply bg-bg text-text font-normal leading-6;
     background: linear-gradient(135deg, #87CEEB 0%, #98D8E8 100%);
     min-height: 100vh;
   }

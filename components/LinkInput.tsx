@@ -57,7 +57,7 @@ export function LinkInput({ onScanStart, onScanComplete }: LinkInputProps) {
   };
 
   return (
-    <div className="bg-surface rounded-lg p-6 shadow-card">
+    <div className="bg-surface rounded-lg p-6 shadow-lg">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <div className="relative">
@@ -69,20 +69,20 @@ export function LinkInput({ onScanStart, onScanComplete }: LinkInputProps) {
                 setError('');
               }}
               placeholder="Paste Link Here"
-              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg body placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-smooth"
+              className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200"
               autoComplete="off"
               spellCheck="false"
             />
             <button
               type="button"
               onClick={handlePaste}
-              className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1 text-sm text-primary hover:bg-primary/10 rounded transition-fast"
+              className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1 text-sm text-primary hover:bg-primary/10 rounded transition duration-100"
             >
               Paste
             </button>
           </div>
           {error && (
-            <p className="mt-2 caption text-danger" role="alert">
+            <p className="mt-2 text-sm font-light text-destructive" role="alert">
               {error}
             </p>
           )}
@@ -99,7 +99,7 @@ export function LinkInput({ onScanStart, onScanComplete }: LinkInputProps) {
       </form>
 
       <div className="mt-4 pt-4 border-t border-gray-100">
-        <p className="caption text-gray-600 text-center">
+        <p className="text-sm font-light text-gray-600 text-center">
           Free tier: 5 scans per day
         </p>
       </div>
